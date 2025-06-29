@@ -1,0 +1,44 @@
+# Node.js
+node_modules/
+.env
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Optional MongoDB dump ignore
+dump/
+
+# Flask
+instance/
+*.db
+
+# coverage
+coverage/
+
+# Others
+*.swp
+*.swo
