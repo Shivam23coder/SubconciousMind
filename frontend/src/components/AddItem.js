@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { addItem } from '../api';
+import { addItem } from '../api.js';
 
 export default function AddItem() {
-  const [name, setName] = useState('');
+  const [name, setName] = useState(''); //State for item name.What are state?
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState('');
 
