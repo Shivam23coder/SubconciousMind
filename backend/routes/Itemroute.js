@@ -57,4 +57,47 @@ router.post('/search', async (req, res) => {
   }
 });
 
+// 4. Update an Item
+router.put('/update/:id', async (req, res) => {
+  try {
+    const { name, location } = req.body;
+    const { id } = req.params;
+
+    const item = await Item.findById(id);
+    if (!item) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    if (name) {
+      item.name = name;
+      item.embedding = await getEmbeddingFromPython(name); // re-embed on name update
+    }
+    if (location) item.location = location;
+
+    await item.save();
+    res.json({ message: 'Item updated', item });
+  } catch (error) {
+    console.error('Update item error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// 5. Delete an Item
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const item = await Item.findByIdAndDelete(id);
+    if (!item) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    res.json({ message: 'Item deleted successfully' });
+  } catch (error) {
+    console.error('Delete item error:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
 export default router;
