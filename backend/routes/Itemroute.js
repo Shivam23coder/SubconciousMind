@@ -6,7 +6,7 @@ import axios from 'axios';
 const router = Router();
 
 async function getEmbeddingFromPython(text) {
-  const res = await axios.post('http://localhost:8000/embed', { text });
+  const res = await axios.post('https://subconciousmind-3.onrender.com/embed', { text });
   return res.data.embedding;
 }
 
