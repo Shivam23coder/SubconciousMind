@@ -1,0 +1,78 @@
+/* AddItem.css */
+.add-item-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #f5f9ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-sizing: border-box; /* added */
+  width: 100%; /* added for responsiveness */
+}
+
+.input-field {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #a3bffa;
+  border-radius: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;  /* crucial to prevent overflow */
+  width: 100%; /* make input fill container width */
+}
+
+.add-item-form h3 {
+  text-align: center;
+  color: #004a99;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #a3bffa;
+  border-radius: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #004a99;
+  background-color: #e7f0ff;
+  outline: none;
+}
+
+.btn-submit {
+  padding: 0.6rem 1.5rem;
+  background-color: #004a99;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:disabled {
+  background-color: #a1bce5;
+  cursor: not-allowed;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #002f66;
+}
+
+.message {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e03e3e; /* red for errors */
+  margin-top: 0.5rem;
+}

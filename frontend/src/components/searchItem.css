@@ -1,0 +1,92 @@
+/* searchItem.css */
+
+.search-container {
+  max-width: 450px;
+  margin: 1.5rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #f9fbff;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+h3 {
+  text-align: center;
+  color: #0057b7;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 2px solid #a3bffa;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline-offset: 2px;
+}
+
+.search-input:focus {
+  border-color: #0057b7;
+  background-color: #eef6ff;
+  outline: none;
+}
+
+.search-button {
+  padding: 0 1.4rem;
+  background-color: #0057b7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:disabled {
+  background-color: #7b9edc;
+  cursor: not-allowed;
+}
+
+.search-button:hover:not(:disabled) {
+  background-color: #003d80;
+}
+
+.message {
+  margin-top: 1rem;
+  text-align: center;
+  color: #dc3545; /* error or info messages */
+  font-weight: 600;
+}
+
+.result-box {
+  margin-top: 1.5rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result-box h4 {
+  margin-top: 0;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.result-box p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+}
+
+.result-box strong {
+  color: #333;
+}

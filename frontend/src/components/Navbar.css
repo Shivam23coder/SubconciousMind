@@ -1,0 +1,30 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+  background-color: #0057b7; /* nice blue */
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #ffd700; /* gold on hover */
+  transform: scale(1.1);
+}
+
+/* .navbar a:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+} */
