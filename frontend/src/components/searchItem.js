@@ -1,59 +1,44 @@
 import React, { useState } from 'react';
-import { addItem } from '../api.js';
+import { searchItem } from '../api.js';
 import './searchItem.css';
 
 export default function SearchItem() {
   const [query, setQuery] = useState('');
-  const [message, setMessage] = useState('');
   const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
   const handleSearch = async (e) => {
     e.preventDefault();
     setMessage('');
-    setResult(null);
-    if (!query.trim()) {
-      setMessage('Please enter a search query');
-      return;
-    }
-    setLoading(true);
     try {
-      const res = await addItem({ query });
-      setResult(res.data);
+      const res = await searchItem(query); // Axios POST
+      setResult(res.data.item);
     } catch (err) {
-      setMessage('Error searching item');
-    } finally {
-      setLoading(false);
+      setResult(null);
+      setMessage('No match found.');
     }
   };
 
   return (
-    <div className="search-container">
+    <div className = "search-container">
       <h3>Semantic Search</h3>
-      <form onSubmit={handleSearch} className="search-form">
+      <form onSubmit={handleSearch}>
         <input
           type="text"
-          placeholder="Search for an item"
+          placeholder="Enter item name"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)} // ✅ important
           required
-          className="search-input"
-          autoComplete="off"
         />
-        <button type="submit" disabled={loading} className="search-button">
-          {loading ? 'Searching...' : 'Search'}
-        </button>
+        <button type="submit">Search</button>
       </form>
-      {message && <p className="message">{message}</p>}
+
+      {message && <p>{message}</p>}
       {result && (
-        <div className="result-box">
-          <h4>Best Match:</h4>
-          <p>
-            <strong>Name:</strong> {result.name || 'N/A'}
-          </p>
-          <p>
-            <strong>Location:</strong> {result.location || 'N/A'}
-          </p>
+        <div>
+          <h4>Found:</h4>
+          <p><strong>Name:</strong> {result.name}</p>
+          <p><strong>Location:</strong> {result.location}</p>
         </div>
       )}
     </div>
