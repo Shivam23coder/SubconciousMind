@@ -6,7 +6,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: 'https://exam-secure.vercel.app',
+  origin: 'https://subconcious-mind-regx.vercel.app',
   credentials: true
 }));
 
