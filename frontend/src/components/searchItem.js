@@ -22,20 +22,21 @@ export default function SearchItem() {
   return (
     <div className = "search-container">
       <h3>Semantic Search</h3>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className='search-form'>
         <input
           type="text"
+          className = "search-input"
           placeholder="Enter item name"
           value={query}
           onChange={(e) => setQuery(e.target.value)} // ✅ important
           required
         />
-        <button type="submit">Search</button>
+        <button type="submit" className='.search-button '>Search</button>
       </form>
 
-      {message && <p>{message}</p>}
+      {message && <p className='messsage'>{message}</p>}
       {result && (
-        <div>
+        <div className='result-box'>
           <h4>Found:</h4>
           <p><strong>Name:</strong> {result.name}</p>
           <p><strong>Location:</strong> {result.location}</p>
