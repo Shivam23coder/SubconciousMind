@@ -13,8 +13,8 @@ function App() {
       <div className="App">
          <div className="header-container">
           <h1>Subconscious Mind App</h1>
-          <Navbar />
         </div>
+          <Navbar />
         <hr />
         <Routes>
           <Route path="/" element={<Home />} />

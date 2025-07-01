@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000/apex/items';
+const API_BASE = 'https://subconciousmind.onrender.com/apex/items';
 
 export const addItem = (data) => axios.post(`${API_BASE}/add`, data);
 // export const getAllItems = () => axios.get(`${API_BASE}/`);

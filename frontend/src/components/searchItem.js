@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchItem } from '../api.js';
+import { searchItem } from '../api';
 import './searchItem.css';
 
 export default function SearchItem() {
@@ -31,7 +31,7 @@ export default function SearchItem() {
           onChange={(e) => setQuery(e.target.value)} // ✅ important
           required
         />
-        <button type="submit" className='.search-button '>Search</button>
+        <button type="submit" className='search-button '>Search</button>
       </form>
 
       {message && <p className='messsage'>{message}</p>}
