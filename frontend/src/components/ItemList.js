@@ -13,7 +13,7 @@ function ItemList() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('https://my-backend.onrender.com/apex/items');
+      const response = await axios.get('https://subconciousmind.onrender.com/item');
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -27,7 +27,7 @@ function ItemList() {
 
   const handleUpdate = async (Id) => {
     try {
-      await axios.put(`https://my-backend.onrender.com/apex/items/update/${Id}`, {
+      await axios.put(`https://subconciousmind.onrender.com/item/update/${Id}`, {
         name: editData.name,
         location: editData.location,
       });
@@ -40,7 +40,7 @@ function ItemList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://my-backend.onrender.com/apex/items/delete/${id}`);
+      await axios.delete(`https://subconciousmind.onrender.com/item/delete/${id}`);
       fetchItems();
     } catch (error) {
       console.log('Error deleting item:', error);
