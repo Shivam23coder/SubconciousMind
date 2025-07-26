@@ -52,14 +52,14 @@ router.post('/search', async (req, res) => {
   const { query } = req.body;
 
   // 1. Try direct keyword search (case-insensitive partial match)
-  const keywordMatch = await Item.find({ name: { $regex: query, $options: 'i' } });
+  const keywordMatch = await Item.findOne({ name: { $regex: query, $options: 'i' } });
 
   if (keywordMatch) {
     return res.json({ item: keywordMatch, source: 'keyword' });
   }
 
   // 2. Otherwise fallback to vector similarity search
-  const queryEmbedding = await getEmbeddingFromPython(query);
+  const queryEmbedding = await getEmbedding(query);
   const items = await Item.find();
 
   let bestItem = null;
@@ -103,7 +103,7 @@ router.put('/update/:id', async (req, res) => {
     const {name, location} = req.body;
     if (!name || !location)
         res.status(400).json({message: 'Name and location are required'});
-    const embedding = await getEmbeddingFromPython(name);
+    const embedding = await getEmbedding(name);
 
     //find by id and update
     const updatedItem = await Item.findByIdAndUpdate(id, {name, location, embedding}, {new: true});
