@@ -17,9 +17,13 @@ router.post('/add', async (req, res) => {
     if (!name || !location) {
       return res.status(400).json({ message: 'Name and location are required' });
     }
+
+    console.log("Received:", req.body);
+    
     const embedding = await getEmbeddingFromPython(name);
     const newItem = new Item({ name, location, embedding });
     await newItem.save();
+
     res.status(201).json({ message: 'Item added successfully', item: newItem });
   } catch (error) {
     console.error('Add item error:', error);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { addItem } from '../api.js';
 import './AddItem.css'; // Optional: style the form
+
 export default function AddItem() {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
