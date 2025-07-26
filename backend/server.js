@@ -7,7 +7,8 @@ dotenv.config();
 const app = express();
 const allowedOrigins = [
   "https://subconcious-mind.vercel.app",
-  "https://subconcious-mind-regx-f45h82xiw-rockys-projects-1043de16.vercel.app"
+  "https://subconcious-mind-regx-f45h82xiw-rockys-projects-1043de16.vercel.app",
+  "https://subconcious-mind-8jbxve879-rockys-projects-1043de16.vercel.app/"
 ];
 
 app.use(
