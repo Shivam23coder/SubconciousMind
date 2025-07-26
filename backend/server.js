@@ -6,7 +6,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: 'https://subconcious-mind-regx.vercel.app',
+  origin: 'https://subconcious-mind-regx-f45h82xiw-rockys-projects-1043de16.vercel.app',
   credentials: true
 }));
 
