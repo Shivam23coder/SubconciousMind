@@ -5,10 +5,24 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: 'https://subconcious-mind-regx-f45h82xiw-rockys-projects-1043de16.vercel.app',
-  credentials: true
-}));
+const allowedOrigins = [
+  "https://subconcious-mind.vercel.app",
+  "https://subconcious-mind-regx-f45h82xiw-rockys-projects-1043de16.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 
 app.use(express.json());
 
