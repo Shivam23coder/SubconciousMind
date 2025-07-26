@@ -52,7 +52,7 @@ router.post('/search', async (req, res) => {
   const { query } = req.body;
 
   // 1. Try direct keyword search (case-insensitive partial match)
-  const keywordMatch = await Item.findOne({ name: { $regex: query, $options: 'i' } });
+  const keywordMatch = await Item.find({ name: { $regex: query, $options: 'i' } });
 
   if (keywordMatch) {
     return res.json({ item: keywordMatch, source: 'keyword' });
