@@ -1,19 +1,22 @@
 import { Router } from 'express';
 import Item from '../models/Itemmodel.js';
-import { cosineSimilarity } from '../utils/similarity.js';
-import axios from 'axios';
+// import { cosineSimilarity } from '../utils/similarity.js';
+// import axios from 'axios';
 
 const router = Router();
 
-async function getEmbeddingFromPython(text) {
-  try {
-    const res = await axios.post('https://subconciousmind-3.onrender.com/embed', { text });
-    return res.data.embedding;
-  } catch (err) {
-    console.error('Python embedding error:', err.response?.data || err.message);
-    throw new Error('Failed to get embedding from Python');
-  }
-}
+// async function getEmbeddingFromPython(text) {
+//   try {
+//     const res = await axios.post('https://subconciousmind-3.onrender.com/embed', { text });
+//     return res.data.embedding;
+//   } catch (err) {
+//     console.error('Python embedding error:', err.response?.data || err.message);
+//     throw new Error('Failed to get embedding from Python');
+//   }
+// }
+
+import { getEmbedding } from '../utils/embedder.js';
+
 
 
 // 1. Add Item
@@ -23,10 +26,11 @@ router.post('/add', async (req, res) => {
     if (!name || !location) {
       return res.status(400).json({ message: 'Name and location are required' });
     }
-
+    
     console.log("Received:", req.body);
-
-    const embedding = await getEmbeddingFromPython(name);
+    
+    const embedding = await getEmbedding(name);
+    // const embedding = await getEmbeddingFromPython(name);
     const newItem = new Item({ name, location, embedding });
     await newItem.save();
 
